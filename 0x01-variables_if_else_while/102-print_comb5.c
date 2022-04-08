@@ -1,50 +1,50 @@
 #include <stdio.h>
-/* more headers goes there */
-/* betty style doc for function main goes there */
+#include <stdlib.h>
 /**
- * main - Entry point
- *
- * Return: Always 0 (Success)
+ * main - main block
+ * Description: Write a program that prints all possible
+ * different combinations of two digits
+ * Return: 0
  */
 int main(void)
 {
-	int p = 48, q = 48, y = 48, x = 49;
+int c;
+int d;
+int e;
+int f = 0;
 
-	while (p < 58)
+while (f < 10)
+{
+	e = 0;
+	while (e < 10)
 	{
-		while (q < 58)
+		d = 0;
+		while (d < 10)
 		{
-			while (y < 58)
+			c = 0;
+			while (c < 10)
 			{
-				while (x < 58)
+				if (!(f == c && e == d))
 				{
-					putchar(p);
-					putchar(q);
+					putchar('0' + f);
+					putchar('0' + e);
 					putchar(' ');
-					putchar(y);
-					putchar(x);
-					if (!(p == 57 &&
-						q == 56 &&
-						y == 57 &&
-						x == 57))
+					putchar('0' + d);
+					putchar('0' + c);
+					if (!(f + e == 18 && c + d == 17 && d == 9))
 					{
 						putchar(',');
 						putchar(' ');
 					}
-					x++;
 				}
-				y++;
-				x = 48;
+				c++;
 			}
-			q++;
-			q = p;
-			x = q + 1;
+			d++;
 		}
-		p++;
-		q = 48;
-		y = p;
-		x = q+ 1;
+		e++;
 	}
-	putchar('\n');
-	return (0);
+	f++;
+}
+putchar('\n');
+return (0);
 }

@@ -1,7 +1,7 @@
 #include "main.h"
 
 /*
- * Task 0- change n=402 to n=98
+ * reset_to_98 - change n=402 to n=98
  * @n:pointer
  * Return: Void .
  */

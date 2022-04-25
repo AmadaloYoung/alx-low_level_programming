@@ -1,65 +1,47 @@
 #include "main.h"
 
 /**
- * infinite_add - add 2 integers.
- * @n1: integer
- * @n2: integer
- * @r: buffer
- * size_r: size of r
- * Return: char
+ *infinite_add - add two numbers.
+ *
+ *@n1: first number.
+ *@n2: second number.
+ *@r: result.
+ *@size_r: result size.
+ *Return: the addition of n1 and n2.
  */
-
-int _atoi(char *s)
-{
-	int sign = 1, resp = 0, firstNum;
-
-	for (firstNum = 0; !(s[firstNum] >= 48 && s[firstNum] <= 57); firstNum++)
-	{
-		if (s[firstNum] == '-')
-		{
-			sign *= -1;
-		}
-	}
-
-	for (int i = firstNum; s[i] >= 48 && s[i] <= 57; i++)
-	{
-		resp *= 10;
-		resp += (s[i] - 48);
-	}
-
-	return (sign * resp);
-}
-
-void int_to_string(int n)
-{
-int divisor = 1, i, resp;
-
-
-for (i = 0; n / divisor > 9; i++)
-{
-	divisor *= 10;
-}
-
-char str[i];
-
-for (int cmpt = 0; divisor >= 10; divisor /= 10, cmpt++)
-{
-	resp = n / divisor;
-	str[cmpt] = '0' + resp;
-	n = n - resp * divisor;
-}
-str[i] = ('0' + n);
-
-}
-
 
 char *infinite_add(char *n1, char *n2, char *r, int size_r)
 {
-    int sum, a, b;
-    a = _atoi(n1);
-    b = _atoi(n2);
+	int add = 0, len1, len2, i, j;
 
-    sum = a + b;
-
-
+	for (len1 = 0; n1[len1]; len1++)
+	;
+	for (len2 = 0; n2[len2]; len2++)
+	;
+	if (len1 > size_r || len2 > size_r)
+		return (0);
+	len1--;
+	len2--;
+	size_r--;
+	for (i = 0; i < size_r; i++, len1--, len2--)
+	{
+		if (len1 >= 0)
+			add += n1[len1] - '0';
+		if (len2 >= 0)
+			add += n2[len2] - '0';
+		if (len1 < 0 && len2 < 0 && add == 0)
+			break;
+		r[i] = add % 10 + '0';
+		add /= 10;
+	}
+	r[i] = '\0';
+	if (len1 >= 0 || len2 >= 0 || add)
+		return (0);
+	for (i--, j = 0; i > j; i--, j++)
+	{
+		add = r[i];
+		r[i] = r[j];
+		r[j] = add;
+	}
+	return (r);
 }

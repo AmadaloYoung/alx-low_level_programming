@@ -1,9 +1,9 @@
 #include "main.h"
 /**
- * _memcpy -  copies memory 
+ * _memcpy -  copies memory
  * @dest: destination
  * @src: source
- * @n: max bytes 
+ * @n: max bytes
  * Return: dest
  */
 

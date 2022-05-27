@@ -1,2 +1,1 @@
-# alx-low_level_programming
-C
+Learning more linked lists

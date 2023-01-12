@@ -3,26 +3,29 @@
 
 /**
  * _strstr - locates a substring
- * @haystack: string
+ * @haystack: whole string
  * @needle: substring
- * Return: pointer to the beginning of the located substring
+ * Return: pointer to the begining of located substring
  */
+
 
 char *_strstr(char *haystack, char *needle)
 {
-	int m, n;
+int a, b;
 
-	for (m = 0; haystack[m] > '\0'; m++)
+for (a = 0; haystack[a] > '\0'; a++)
+{
+	for (b = a; haystack[b] > '\0' && needle[b - a] > '\0'; b++)
 	{
-		for (n = m; haystack[m] > '\0' && needle[n - m] > '\0'; n++)
+		if (haystack[b] != needle[b - a])
 		{
-			if (haystack[n] != needle[n - m])
-				break;
-
+			break;
 		}
-		if (needle[n - m] == '\0')
-			return (haystack + m);
-
 	}
-	return (0);
+	if (needle[b - a] == '\0')
+	{
+		return (haystack + a);
+	}
+}
+return (0);
 }

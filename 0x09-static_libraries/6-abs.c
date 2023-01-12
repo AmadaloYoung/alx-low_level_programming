@@ -2,8 +2,8 @@
 #include <stdlib.h>
 
 /**
- * _abs - computes the absolute value of an integer
- *@n: integer to be tested
+ * _abs - return the absolute value of an integer
+ * @n: integer to be tested
  * Return: abs(n)
  */
 int _abs(int n)

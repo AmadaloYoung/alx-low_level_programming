@@ -1,24 +1,25 @@
 #include "main.h"
 
 /**
- * print_chessboard - prints chessboard
- * @a: pointer
- * Return: void
+ * print_chessboard - print the chessboard
+ * @a: input pointer
+ * Return: void has no return
  */
 void print_chessboard(char (*a)[8])
 {
-	int i, j;
+	int b, c;
 
-	i = 0;
-	while (i < 8)
+	b = 0;
+	while (b < 8)
 	{
-		j = 0;
-		while (j < 8)
+		c = 0;
+		while (c < 8)
 		{
-			_putchar (a[i][j]);
-			j++;
+			_putchar (a[b][c]);
+			c++;
 		}
 		_putchar ('\n');
-		i++;
+		b++;
 	}
+
 }

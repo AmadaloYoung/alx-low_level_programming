@@ -1,1 +1,1 @@
-0x05. C - Pointers, arrays and strings
+This is a direc tory about pointers, arrays and strings

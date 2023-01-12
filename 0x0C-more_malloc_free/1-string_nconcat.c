@@ -1,51 +1,34 @@
 #include "main.h"
-/**
- * _strlen - find length of a string
- * @s: string
- * Return: int
- */
-
-unsigned int _strlen(char *s)
-{
-unsigned int size = 0;
-for (; s[size] != '\0'; size++)
-;
-return (size);
-}
+#include <stdlib.h>
 
 /**
- * *string_nconcat - concatenates two strings
- * @s1: string 1
- * @s2: string 2
- * @n: first bytes of s2 to be used
- * Return: pointer or NULL
+ * string_nconcat - concatenates two strings
+ * @s1: first string
+ * @s2: second string
+ * @n: bytes to concatinates from string s2
+ * Return: returns NULL if it fails and a pointer on success
  */
-
 char *string_nconcat(char *s1, char *s2, unsigned int n)
 {
-unsigned int i, j;
-char *m;
+	char *concat;
+	unsigned int lens = n, i;
 
-if (s1 == NULL)
-	s1 = "";
-if (s2 == NULL)
-	s2 = "";
+	if (s1 == NULL)
+		s1 = "";
+	if (s2 == NULL)
+		s2 = "";
+	for (i = 0; s1[i]; i++)
+		lens++;
+	concat = malloc(sizeof(char) * (lens + 1));
 
-if (n < _strlen(s2))
-	m = malloc(_strlen(s1) + n * sizeof(char) + 1);
-else
-	m = malloc(_strlen(s1) + _strlen(s2) + 1);
+	if (concat == NULL)
+		return (NULL);
+	lens = 0;
+	for (i = 0; s1[i]; i++)
+		concat[lens++] = s1[i];
 
-if (m == 0)
-	return (NULL);
-
-for (i = 0; s1[i] != '\0'; i++)
-	m[i] = s1[i];
-
-for (j = 0; s2[j] != '\0' && j < n; i++, j++)
-	m[i] = s2[j];
-
-m[i] = '\0';
-
-return (m);
+	for (i = 0; s2[i] && i < n; i++)
+		concat[lens++] = s2[i];
+	concat[lens] = '\0';
+	return (concat);
 }

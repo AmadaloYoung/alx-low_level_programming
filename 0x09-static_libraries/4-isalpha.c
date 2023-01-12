@@ -2,7 +2,7 @@
 
 /**
  * _isalpha - returns 1 if c is uppercase or lowercase.
- * @c: integer to be tested.
+ * @c: integer tobe tested.
  * Return: 1 or 0.
  */
 int _isalpha(int c)
